@@ -8,7 +8,7 @@ _Downloads JNLP XML to /tmp/webstart.jnlp and executes it._
 
 ### USAGE:
 
-1) `export IKVMLOL_USER=<user>` and `IKVMLOL_PASS=<pass>`
+1) `export IKVMLOL_USER=<user> IKVMLOL_PASS=<pass>`
 
 2) `ikvmlol <host>`
 
