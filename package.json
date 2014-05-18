@@ -1,7 +1,7 @@
 {
   "name": "ikvmlol",
   "version": "0.0.0",
-  "description": "Download JNLP files and execute them with java webstart.",
+  "description": "Download supermicro IPMI JNLP files and execute them with JavaWS.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
