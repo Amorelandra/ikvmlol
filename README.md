@@ -5,7 +5,7 @@ Download supermicro IPMI JNLP files and execute them with JavaWS.
 
 _Requires `javaws` to be installed and in your paths._
 
-_Downloads JNLP XML to /tmp/webstart.jnlp and executes it._
+_Downloads JNLP XML to `/tmp/webstart.jnlp` and executes it._
 
 ### USAGE:
 
