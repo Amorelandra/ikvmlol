@@ -32,8 +32,8 @@ function begin(err) {
 	if(err) { return exit(err) }
 
 	console.log("* Attempting login...")
-	var uri = util.format(uri.login, host)
-	form(uri, function logged(err, res, body) {
+	var login = util.format(uri.login, host)
+	form(login, function logged(err, res, body) {
 
 		if(err) { 
 			
@@ -72,8 +72,8 @@ function webStart(sid) {
 		encoding : null
 		, mode : 0700
 	})
-	var uri = util.format(uri.webstart, host, sid)
-	get(uri).pipe(jnlp)
+	var download = util.format(uri.webstart, host, sid)
+	get(download).pipe(jnlp)
 
 	jnlp.on('close', function() { 
 
