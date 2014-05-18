@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js"
   },
+  "bin": "./index.js",
   "author": "Emily Rose <nexxy@saucelabs.com>",
   "license": "MIT",
   "dependencies": {
