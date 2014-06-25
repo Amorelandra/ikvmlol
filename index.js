@@ -91,9 +91,8 @@ function webStart(sid) {
 		encoding : null
 		, mode : 0700
 	})
-	var download = util.format(uri.webstart, host, sid)
-	get(download).pipe(jnlp)
-
+	var download = util.format(uri.webstart, host)
+	dl(download, sid).pipe(jnlp)
 	jnlp.on('close', function() { 
 
 		console.log("* Done! Launching.")
@@ -105,6 +104,20 @@ function webStart(sid) {
 		process.nextTick(process.exit)
 	})
 	jnlp.on('error', exit)
+}
+
+function dl(uri, sid) {
+
+	var opts = {
+		url : uri
+		, headers : {
+			'Accept-Encoding' : 'gzip,deflate,sdch'
+			, 'Accept-Language' : 'en-US,en;q=0.8'
+			, 'Cookie' : util.format('SID=%s', sid)
+			, 'Referer' : uri
+		}
+	}
+	return request(opts)
 }
 
 function get(uri, cb) { return req('GET', uri, cb) }
