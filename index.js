@@ -25,8 +25,22 @@ validate(begin)
 
 function validate(cb) {
 
-	if(!user) { return cb(new Error('Please export IKVMLOL_USER.')) }
-	if(!pass) { return cb(new Error('Please export IKVMLOL_PASS.')) }
+	if(!user) {
+
+		console.log("* No user specified, trying defaults.")
+		user = 'ADMIN'
+		def = true
+	}
+	if(!pass) {
+
+		if(user != 'ADMIN') {
+
+			console.log("* Export IKVMLOL_USER & IKVMLOL_PASS to win.")
+			return cb(new Error('No pass specified.'))
+		}
+		pass = 'ADMIN'
+		def = true
+	}
 	if(!host) { return cb(new Error('No host specified.')) }
 
 	cb(null)
