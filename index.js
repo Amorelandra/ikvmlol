@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var exec = require('child_process').exec
+var spawn = require('child_process').spawn
 var minimist = require('minimist')
 var request = require('request')
 var cookie = require('cookie')
@@ -77,11 +77,13 @@ function webStart(sid) {
 
 	jnlp.on('close', function() { 
 
-		console.log("* Done! Executing...")
-		exec('javaws /tmp/webstart.jnlp', function(err, stdout, stderr) {
-
-			console.log('* Finished.')
-		})
+		console.log("* Done! Launching.")
+		var ws = spawn(
+			'javaws'
+			, [ '/tmp/webstart.jnlp' ]
+			, { detached : true }
+		)
+		process.nextTick(process.exit)
 	})
 	jnlp.on('error', exit)
 }
