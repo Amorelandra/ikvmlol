@@ -11,7 +11,6 @@ var host, user, pass
 var argv
 
 argv = minimist(process.argv.slice(2))
-
 host = argv._[0]
 user = process.env.IKVMLOL_USER || argv.user
 pass = process.env.IKVMLOL_PASS || argv.pass
@@ -128,12 +127,6 @@ function req(method, uri, cb) {
 	opts.method = method
 	opts.uri = uri
 
-		method : method
-		, uri : uri
-		, jar : true
-		, timeout : 10000
-		, strictSSL : false
-	}
 	if(method == 'FORM') {
 
 		opts.method = 'POST'
