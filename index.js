@@ -16,6 +16,11 @@ host = argv._[0]
 user = process.env.IKVMLOL_USER || argv.user
 pass = process.env.IKVMLOL_PASS || argv.pass
 
+var getOpts = {
+		timeout : 10000
+		, strictSSL : false
+}
+
 validate(begin)
 
 function validate(cb) {
@@ -92,7 +97,9 @@ function get(uri, cb) { return req('GET', uri, cb) }
 function form(uri, cb) { return req('FORM', uri, cb) }
 function req(method, uri, cb) {
 
-	var opts = {
+	var opts = getOpts
+	opts.method = method
+	opts.uri = uri
 
 		method : method
 		, uri : uri
