@@ -1,6 +1,6 @@
 {
   "name": "ikvmlol",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Download supermicro IPMI JNLP files and execute them with JavaWS.",
   "main": "index.js",
   "scripts": {
